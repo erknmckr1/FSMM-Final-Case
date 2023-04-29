@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 function PaginationBar() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const { ships, status, totalCount } = useSelector((state) => state.shıps);
-
+  const {totalCount } = useSelector((state) => state.shıps);
+  
   useEffect(() => {
     dispatch(fetchSWshıps({ page }));
   }, [page, dispatch]);
-    // toplam sayfa sayısını alalım buna gore önceki ve sonraki sayfaya gıdecegız hata almamak ıcın bır sınır getırmelıyız.
+    // toplam gemi sayısını her sayfada olacak gemı sayısına bolup gelecek ondalıklı sayıyı math.ceil()fonksıyonu ile üst tam sayıya yuvarlayıp toplam sayfa sayısını bulalım.
   let totalPages = Math.ceil(totalCount / 10);
   // next page
   const ıncreasePage = () => {
@@ -29,10 +29,9 @@ function PaginationBar() {
   const handleChangePage = (e,value) =>{
     setPage(value)
   }
-  console.log({ status: status, data: ships,page:page });
   return (
-    <div className="w-full  flex justify-center items-center container mx-auto">
-    <div className="w-[500px]  sm:h-[3.5rem] sm:p-0 px-3 opacity-90  flex justify-between items-center bg-secondary  ">
+    <div className="w-full  flex justify-center items-center container mx-auto bg-secondary opacity-90 ">
+    <div className="w-[500px]  sm:h-[3.5rem] sm:p-0 px-3  flex justify-between items-center   ">
       <Button variant="outlined" color="warning" onClick={decreasePage}>Previos Page</Button>
       <Pagination onChange={handleChangePage}  count={4} color="warning" page={page} />
       <Button variant="outlined" color="warning" onClick={ıncreasePage}>Next Page</Button>

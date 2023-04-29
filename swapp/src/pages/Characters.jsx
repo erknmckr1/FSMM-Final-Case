@@ -2,7 +2,7 @@ import React from 'react'
 
 function Characters() {
   return (
-    <div>Characters</div>
+    <div className='h-screen'>Characters</div>
   )
 }
 

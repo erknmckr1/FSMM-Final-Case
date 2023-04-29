@@ -1,14 +1,14 @@
-import React from 'react'
-import Header from '../Header'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import Header from "../Header";
+import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div className='w-full h-full'>
-      <Header/>
-      <Outlet/>
+    <div className="w-full h-screen">
+      <Header />
+      <Outlet />
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

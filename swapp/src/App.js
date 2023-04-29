@@ -6,7 +6,7 @@ import Shıps from './pages/Shıps';
 import Characters from './pages/Characters';
 function App() {
   return (
-    <div className="h-screen w-screen ">
+    <div className=" w-screen ">
       <Routes>
       <Route path='/' element={<Layout/>}>
           <Route index={true} element={<Home/>}/>
