@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import Logo from "../ui/Logo";
 import RightSide from "../ui/RightSide";
 import { NavLink } from "react-router-dom";
-import PaginationBar from "../components/PaginationBar";
+import { useLocation } from "react-router-dom";
+
 import OutsideClickHandler from "react-outside-click-handler";
 function Header() {
   //nav kısmının acılıp kapanması ıcın olusturdugumus state...
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  // nav kısmının dısındakı alanlara tıklayınca isMenuOpen degerını false yapması ıcın olusturduk. React-outline-slick kutuphanesını kullandıgımız ıcın sarmaladıgımız dıv dısında bır yere tıkladıgımız zaman state'ın durumu false donecek.
-  // const clickOutSide = () =>{
-  //   setIsMenuOpen(false)
-  // }
+  
   return (
-    <div className="w-full  z-50 h-[150px] ">
+    <div className="w-full  z-50 h-[5.5rempx] ">
       <div className="relative h-[5.5rem] opacity-90 bg-black sm:text-secondary text-white font-bold w-screen flex justify-center ">
         <div className="container  flex justify-between items-center">
           <Logo />
@@ -28,13 +27,13 @@ function Header() {
               isMenuOpen ? "block" : "hidden"
             } sm:block sm:static absolute text-[20px]`}
           >
-            <NavLink className="mx-2" to="/">
+            <NavLink className={`mx-2 ${location.pathname === "/" ? 'text-white' : ""}`} to="/">
               Home
             </NavLink>
-            <NavLink className="mx-2" to="/characters">
+            <NavLink className={`mx-2 ${location.pathname === "/characters" ? 'text-white' : ""}`} to="/characters">
               Characters
             </NavLink>
-            <NavLink className="mx-2" to="/shıps">
+            <NavLink className={`mx-2 ${location.pathname === "/shıps" ? 'text-white' : ""}`} to="/shıps">
               Shıps
             </NavLink>
           </nav>
@@ -42,9 +41,7 @@ function Header() {
           <RightSide />
         </div>
       </div>
-      {/* page paginatıon sstart */}
-      <PaginationBar/>
-      {/* page paginatıon end */}
+      
     </div>
   );
 }

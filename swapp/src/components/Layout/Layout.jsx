@@ -6,7 +6,9 @@ function Layout() {
   return (
     <div className="w-full h-screen">
       <Header />
-      <Outlet />
+      <div style={{height: "calc(100vh - 88px)"}}>
+        <Outlet/>
+      </div>
     </div>
   );
 }

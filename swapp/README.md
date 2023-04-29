@@ -7,7 +7,8 @@ yarn start
 ```
 ## Which libraries were used
 - ReactJS
-- Tailwin CSS
+- Redux/toolkit
+- Tailwind CSS
 - axios
 - react-router-dom
 - Material ui
@@ -68,3 +69,19 @@ Outlet bileşeni, Layout bileşeninin main bölümünde yer alır ve burada rota
   ```
 
 - Bazı mui komponentlerınde tailwind CSS ve benzeri css kütüphaneleri ile biçimlendirme olmuyor. 
+
+### useParams() 
+
+react-router-dom kutuphanesinde useParams özelliği sayesinde Route parametrelerını kullanmak mumkun hale gelır. /ships/:shipname gibi bir path i olan sayfada shipname parametresını alabılmek gıbı
+
+```bash
+function Details() {
+  const {shipname} = useParams()
+  console.log(shipname)
+  return (
+    <div>
+      
+    </div>
+  )
+}
+```

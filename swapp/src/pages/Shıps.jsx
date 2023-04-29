@@ -1,20 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import PaginationBar from "../components/PaginationBar";
 function Shıps() {
-  const { ships } = useSelector((state) => state.shıps);
+  const { ships,searchValue } = useSelector((state) => state.shıps);
 
-  console.log(ships);
+  const filteredShıp = ships.filter((ship=>ship.name.toLowerCase().includes(searchValue.toLowerCase())))
+  console.log(filteredShıp)
 
   return (
     //parent div e h-screen dedik (height ekran kadar olacak) taşma yapmaması ıcın asagıdakı divleri header'ın yukseklıgı kadar azalttık. header'a 150 px vermıstık.
-    <div className="w-full overflow-y-scroll   text-white" style={{height: "calc(100vh - 150px)"}}>
+    <div className="w-full  h-full  overflow-y-scroll" >
+      {/* page paginatıon sstart */}
+      <PaginationBar/>
+      {/* page paginatıon end */}
+
       {/* Shıps Listing... */}
-      <div className="container mx-auto  flex justify-center items-center ">
+      <div className="container mx-auto  flex justify-center items-center  ">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3   ">
           {/* shıps cards start  */}
-          {ships &&
-            ships.map((ship, index) => (
+          {filteredShıp &&
+            filteredShıp.map((ship, index) => (
               <div
                 key={index}
                 className="w-[300px] h-[400px] bg-secondary  mt-5 rounded-3xl"
@@ -39,7 +46,10 @@ function Shıps() {
                     <span className="font-bold text-[#DECDCE]">Hyperdrive Rating: </span>
                     <span>{ship.hyperdrive_rating}</span>
                   </div>
+                  <NavLink to={`/ship/${ship.name}`}>
                   <Button className="py-3" variant="outlined">Detail</Button>
+                  </NavLink>
+                  
                 </div>
                 {/* card body */}
               </div>

@@ -43,14 +43,14 @@ function PaginationBar() {
     dispatch(getInputValue(inputValue))
   },[dispatch,inputValue])
   return (
-    <div className="w-full  flex justify-evenly items-center container mx-auto bg-secondary opacity-90 ">
-    <div className="w-[500px]  sm:h-[3.5rem] sm:p-0 px-3  flex justify-between items-center   ">
+    <div className="w-full  flex sm:flex-row flex-col justify-evenly items-center container mx-auto bg-secondary opacity-90 ">
+    <div className="sm:w-[500px]  sm:h-[3.5rem] sm:p-0 px-3  flex justify-between items-center   ">
       <Button variant="outlined" color="warning" onClick={decreasePage}>Previos Page</Button>
       <Pagination onChange={handleChangePage}  count={4} color="warning" page={page} />
       <Button variant="outlined" color="warning" onClick={ıncreasePage}>Next Page</Button>
     </div>
-    <div>
-      <input value={inputValue} onChange={handleChangeInput} placeholder="search..." className="bg-transparent border-b-2 border-[#D14901] outline-none text-black" type="text" />
+    <div className="w-full sm:w-0 flex justify-center">
+      <input value={inputValue} onChange={handleChangeInput} placeholder="search..." className="bg-transparent border-b-4 border-[#D14901] px-4 outline-none text-black" type="text" />
     </div>
   </div>
   )

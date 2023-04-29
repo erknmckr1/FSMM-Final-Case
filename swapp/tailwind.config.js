@@ -9,9 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primary:"#ffbe83",
-        secondary:'#FFE818  '
+        secondary:'#FFE818',
+        title:'#DECDCE'
       },
+      fontFamily:{
+        dancing:["Dancing Script", "cursive"],
+        open:["Open Sans", "sans-serif"]
+      }
     },
   },
   plugins: [],
