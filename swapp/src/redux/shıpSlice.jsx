@@ -7,11 +7,14 @@ export const shıpSlice = createSlice({
         status:"ıdle",
         totalCount:0,
         error:"",
-        currentPage:""
+        currentPage:"",
+        searchValue:"",
 
     },
     reducers:{
-
+        getInputValue:(state,action)=>{
+            state.searchValue=action.payload
+        }
     },
     extraReducers:(builder)=>{
         builder
@@ -30,5 +33,5 @@ export const shıpSlice = createSlice({
     }
 
 })
-
+export const {getInputValue} = shıpSlice.actions;
 export default shıpSlice.reducer;
