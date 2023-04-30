@@ -41,19 +41,20 @@ function Shıps() {
     }
   }, [dispatch, page, ships.length]);
 
-  // datayı ınputa gırdıgımız karakterlere göre filtrelelim.
+  // datayı ınputa gırdıgımız karakter ıle name ve model e gore fıltreleyelim
   const filteredShıp = ships.filter((ship) =>
-    ship.name.toLowerCase().includes(searchValue.toLowerCase())
+  ship.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+  ship.model.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   return (
     <div className="w-full  h-full  overflow-y-scroll">
-      {/* page paginatıon sstart */}
+      {/* search komponent */}
       <Search />
-      {/* page paginatıon end */}
+      {/* seaerch komponent */}
+  
 
       {/* Shıps Listing... */}
-
       <div className="container mx-auto  flex justify-center items-center flex-col  ">
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-3   ">
           {/* shıps cards start  */}
