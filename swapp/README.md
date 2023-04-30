@@ -13,6 +13,7 @@ yarn start
 - react-router-dom
 - Material ui
 - react-outline-slick
+- React player
  
 ### tailwind CSS setup
 1- npm install tailwindcss postcss-cli autoprefixer
