@@ -3,14 +3,17 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { GrLinkPrevious } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import imageData from '../image.json'
 function Details() {
+
   const navigate = useNavigate();
   const { ships } = useSelector((state) => state.shıps);
   const { shipname } = useParams();
   const detailShip = ships.find((ship) => ship.name === shipname);
-  console.log(detailShip);
+  
+  // image'lerin bulundugu json dosyasından ılgılı elamanın gorselını aldık. 
+  const filteredImage = imageData.find((image)=> image.name === shipname)
 
-  // back functıon 
   // bir önceki sayafaya gitmek ıcın navigate'e -1 parametresi veriyoruz. 
   const handleBack = () =>{
     navigate(-1)
@@ -39,7 +42,7 @@ function Details() {
               {/* img */}
               <img
                 className="sm:w-[90%] sm:h-1/2 h-[200px] w-[250px] "
-                src="/loadingSW.gif"
+                src={filteredImage.img}
                 alt="img"
               />
             </div>

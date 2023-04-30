@@ -9,7 +9,7 @@ import imageData from "../image.json";
 function Shıps() {
   const { ships, searchValue, status } = useSelector((state) => state.shıps);
 
- 
+  //  ilgili geminin görselini almak için getImage ısımlı bır fonksıyon olusturduk ve olusturdugumuz ımage json dosyası içinde fonksıyona gemının ısmını yollayıp dosya içinde arama yaptık eşleşen elemanın ımage'ini aldık.
   const getImage = (name) =>{
     const filteredImage = imageData.find((img)=>img.name === name)
     return filteredImage.img

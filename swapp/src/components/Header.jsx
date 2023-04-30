@@ -14,7 +14,7 @@ function Header() {
   };
   
   return (
-    <div className="w-full  z-50 h-[5.5rempx] ">
+    <div className="w-full relative  z-50 h-[5.5rempx] ">
       <div className="relative h-[5.5rem] opacity-90 bg-black sm:text-secondary text-white font-bold w-screen flex justify-center ">
         <div className="container  flex justify-between items-center">
           <Logo />
