@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import PaginationBar from "../components/PaginationBar";
+import Loading from "../ui/Loading";
 function Shıps() {
-  const { ships,searchValue } = useSelector((state) => state.shıps);
+  const { ships,searchValue,status } = useSelector((state) => state.shıps);
 
   const filteredShıp = ships.filter((ship=>ship.name.toLowerCase().includes(searchValue.toLowerCase())))
   console.log(filteredShıp)
@@ -12,6 +13,7 @@ function Shıps() {
   return (
     //parent div e h-screen dedik (height ekran kadar olacak) taşma yapmaması ıcın asagıdakı divleri header'ın yukseklıgı kadar azalttık. header'a 150 px vermıstık.
     <div className="w-full  h-full  overflow-y-scroll" >
+      {status === "loading" ? <Loading/> : null}
       {/* page paginatıon sstart */}
       <PaginationBar/>
       {/* page paginatıon end */}

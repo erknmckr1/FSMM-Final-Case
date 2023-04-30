@@ -24,8 +24,21 @@ code {
     monospace;
 }
 
-.activeLink {
 
-  @apply underline  text-[red]
-
+.animating-div {
+  animation: grow-div 4s ease-in-out ;
 }
+
+@keyframes grow-div {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+/* yukarıdakı forwards ozellıgı ıle anımasyon bıtımınde durdurduk sonsuz donguyu enlledık. */
