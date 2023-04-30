@@ -5,6 +5,8 @@ npm run start
 # or
 yarn start
 ```
+
+## Live : https://fsmm-final-case.vercel.app/
 ## Which libraries were used
 - ReactJS
 - Redux/toolkit

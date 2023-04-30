@@ -9,7 +9,6 @@ export const shıpSlice = createSlice({
         error:"",
         currentPage:"",
         searchValue:"",
-
     },
     reducers:{
         getInputValue:(state,action)=>{
@@ -23,7 +22,7 @@ export const shıpSlice = createSlice({
         })
         .addCase(fetchSWshıps.fulfilled,(state,action)=>{
             state.status = "succeeded";
-            state.ships = action.payload.ships;
+            state.ships = [...state.ships, ...action.payload.ships];
             state.totalCount = action.payload.totalCount
         })
         .addCase(fetchSWshıps.rejected,(state,action)=>{

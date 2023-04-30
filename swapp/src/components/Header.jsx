@@ -4,7 +4,6 @@ import RightSide from "../ui/RightSide";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import OutsideClickHandler from "react-outside-click-handler";
 function Header() {
   //nav kısmının acılıp kapanması ıcın olusturdugumus state...
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +14,7 @@ function Header() {
   
   return (
     <div className="w-full relative  z-50 h-[5.5rempx] ">
-      <div className="relative h-[5.5rem] opacity-90 bg-black sm:text-secondary text-white font-bold w-screen flex justify-center ">
+      <div className="relative h-[5.5rem]  bg-black sm:text-secondary text-white font-bold w-screen flex justify-center ">
         <div className="container  flex justify-between items-center">
           <Logo />
           <button onClick={toggleMenu} className="sm:hidden block">
